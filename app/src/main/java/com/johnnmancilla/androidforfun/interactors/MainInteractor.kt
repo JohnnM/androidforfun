@@ -29,9 +29,6 @@ class MainInteractor<T>:IInteractor<T> {
         apiClientNetwork = webNetwork.createEndPoint()
 
         call = apiClientNetwork?.getLaptops()
-        Log.i("UNO","test")
-
-
 
         call?.enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {

@@ -24,19 +24,6 @@ class MainPresenter<T>: IInteractor.onFinishLoadData<T> {
         interactor?.loadData(this)
     }
 
-    fun onDestroy() {
-        mainView = null
-    }
-
-    fun onItemClicked(item: String) {
-        if (mainView != null) {
-           // mainView.showMessage(String.format("%s clicked", item))
-        }
-    }
-
-    fun getMainView(): MainView? {
-        return mainView
-    }
 
     override fun onSuccessLoadData(value: List<T>?) {
         if (mainView != null) {
