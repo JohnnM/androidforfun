@@ -11,6 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.johnnmancilla.androidforfun.adapters.MainAdapter
 import com.johnnmancilla.androidforfun.interactors.MainInteractor
 import com.johnnmancilla.androidforfun.presenters.MainPresenter
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.core.app.ComponentActivity
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
+
 
 class MainActivity<T> : AppCompatActivity(), MainView {
 
@@ -37,6 +45,12 @@ class MainActivity<T> : AppCompatActivity(), MainView {
     }
 
     override fun setItems(items: List<Laptop>?) {
+        recyclerView?.addItemDecoration(
+            DividerItemDecoration(
+                recyclerView?.context,
+                DividerItemDecoration.VERTICAL
+            )
+        )
         recyclerView?.setLayoutManager(LinearLayoutManager(this))
         recyclerView?.setAdapter(MainAdapter(items!!))
     }
